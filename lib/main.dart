@@ -15,12 +15,12 @@ class _HomeState extends State<Home> {
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  String _infoText = 'Informe seus dados!';
+  String _infoText = 'Please, insert your data!';
   void _resetFields() {
     weightController.text = '';
     heightController.text = '';
     setState(() {
-      _infoText = 'Informe seus dados!';
+      _infoText = 'Please, insert your data!';
       _formKey = GlobalKey<FormState>();
     });
   }
@@ -33,17 +33,17 @@ class _HomeState extends State<Home> {
       double imc = weight / (height * height);
 
       if (imc < 18.6) {
-        _infoText = 'Abaixo do peso (${imc.toStringAsPrecision(4)})';
+        _infoText = 'Underweight (${imc.toStringAsPrecision(4)})';
       } else if (imc >= 18.6 && imc < 24.9) {
-        _infoText = 'Peso ideal (${imc.toStringAsPrecision(4)})';
+        _infoText = 'Normal weight (${imc.toStringAsPrecision(4)})';
       } else if (imc >= 24.9 && imc < 29.9) {
-        _infoText = 'Levemente acima do peso (${imc.toStringAsPrecision(4)})';
+        _infoText = 'Overweight (${imc.toStringAsPrecision(4)})';
       } else if (imc >= 29.9 && imc < 34.9) {
-        _infoText = 'Obesidade grau I (${imc.toStringAsPrecision(4)})';
+        _infoText = 'Obesity I (${imc.toStringAsPrecision(4)})';
       } else if (imc >= 34.9 && imc < 39.9) {
-        _infoText = 'Obesidade grau II (${imc.toStringAsPrecision(4)})';
+        _infoText = 'Obesity II (${imc.toStringAsPrecision(4)})';
       } else if (imc >= 40.0) {
-        _infoText = 'Obesidade grau III (${imc.toStringAsPrecision(4)})';
+        _infoText = 'Obesity III (${imc.toStringAsPrecision(4)})';
       }
     });
   }
@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('IMC Calculator4'),
+          title: Text('BMI Calculator'),
           centerTitle: true,
           backgroundColor: colorTheme,
           actions: <Widget>[
